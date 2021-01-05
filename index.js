@@ -1,27 +1,18 @@
 //const title = document.getElementById("title");
 const title = document.querySelector("#title");
 
-function handleResize(){
-    console.log("I have been resized")
+const CLICKED_CLASS = "clicked";
+
+function handleClick(){ //className으로 하면 class 이름이 바뀌면 속성도 바뀐다. btn의 속성에 마우스 커서가 clicked가 되면 사라진다.
+    const hasClass = title.classList.contains(CLICKED_CLASS);
+    if(!hasClass){
+        title.classList.add(CLICKED_CLASS); // classList를 사용하면 btn을 그대로 가진 채로 cliked를
+    } else{
+        title.classList.remove(CLICKED_CLASS);
+    } // title.classList.toggle(CLICKED_CLASS)은 if, else와 똑같은 역할을 해준다.
 }
-
-window.addEventListener("resize", handleResize); // window의 크기를 바꾸면 handleResize를 호출, handleResize() 를 넣으면 resize 이벤트 상관없이 함수 시행
-
-
-function handleClick(){
-    const currentColor = title.style.color;
-    if (currentColor === BASE_COLOR){
-        title.style.color = OTHER_COLOR;
-    } else {
-        title.style.color = BASE_COLOR;
-    }
-}
-
-const BASE_COLOR = "rgb(52, 73, 94)";
-const OTHER_COLOR = "#7f8c8d";
 
 function init(){
-    title.style.color = BASE_COLOR;
     title.addEventListener("click", handleClick); // title을 클릭하면 색깔 change
 }
 
