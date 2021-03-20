@@ -7,7 +7,8 @@ body{
 }
 
 body{
-    color: #ffffff;
+    text-align: center;
+    justify-content: center;
 }
 
 .clicked {
@@ -40,4 +41,8 @@ body{
     height: 100%;
     z-index: -1;
     animation: fadeIn .5s linear;
+}
+
+.js-clock{
+    color: #ffffff;
 }
